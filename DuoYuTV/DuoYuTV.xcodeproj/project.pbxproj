@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1898B9FA1DAB3D7000C6F33B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898B9F91DAB3D7000C6F33B /* AppDelegate.swift */; };
-		1898B9FC1DAB3D7000C6F33B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898B9FB1DAB3D7000C6F33B /* ViewController.swift */; };
 		1898B9FF1DAB3D7000C6F33B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1898B9FD1DAB3D7000C6F33B /* Main.storyboard */; };
 		1898BA011DAB3D7000C6F33B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1898BA001DAB3D7000C6F33B /* Assets.xcassets */; };
 		1898BA041DAB3D7000C6F33B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1898BA021DAB3D7000C6F33B /* LaunchScreen.storyboard */; };
 		1898BA0F1DAB3D7000C6F33B /* DuoYuTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA0E1DAB3D7000C6F33B /* DuoYuTVTests.swift */; };
 		1898BA1A1DAB3D7000C6F33B /* DuoYuTVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA191DAB3D7000C6F33B /* DuoYuTVUITests.swift */; };
+		1898BA2F1DAB3FF000C6F33B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA2E1DAB3FF000C6F33B /* MainTabBarController.swift */; };
+		1898BA3D1DAB40CE00C6F33B /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA3C1DAB40CE00C6F33B /* MeViewController.swift */; };
+		1898BA401DAB40E900C6F33B /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA3F1DAB40E900C6F33B /* FollowViewController.swift */; };
+		1898BA421DAB40F700C6F33B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA411DAB40F700C6F33B /* LiveViewController.swift */; };
+		1898BA441DAB410300C6F33B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898BA431DAB410300C6F33B /* HomeViewController.swift */; };
+		1898BA471DAB42E000C6F33B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1898BA451DAB42E000C6F33B /* Home.storyboard */; };
+		1898BA4A1DAB44B300C6F33B /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1898BA481DAB44B300C6F33B /* Live.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,6 @@
 /* Begin PBXFileReference section */
 		1898B9F61DAB3D7000C6F33B /* DuoYuTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuoYuTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1898B9F91DAB3D7000C6F33B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1898B9FB1DAB3D7000C6F33B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1898B9FE1DAB3D7000C6F33B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1898BA001DAB3D7000C6F33B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1898BA031DAB3D7000C6F33B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		1898BA151DAB3D7000C6F33B /* DuoYuTVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuoYuTVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1898BA191DAB3D7000C6F33B /* DuoYuTVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuoYuTVUITests.swift; sourceTree = "<group>"; };
 		1898BA1B1DAB3D7000C6F33B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1898BA2E1DAB3FF000C6F33B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1898BA3C1DAB40CE00C6F33B /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		1898BA3F1DAB40E900C6F33B /* FollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
+		1898BA411DAB40F700C6F33B /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		1898BA431DAB410300C6F33B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1898BA461DAB42E000C6F33B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		1898BA491DAB44B300C6F33B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Live.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +109,10 @@
 		1898B9F81DAB3D7000C6F33B /* DuoYuTV */ = {
 			isa = PBXGroup;
 			children = (
+				1898BA271DAB3E9500C6F33B /* Classes */,
 				1898B9F91DAB3D7000C6F33B /* AppDelegate.swift */,
-				1898B9FB1DAB3D7000C6F33B /* ViewController.swift */,
 				1898B9FD1DAB3D7000C6F33B /* Main.storyboard */,
+				1898BA481DAB44B300C6F33B /* Live.storyboard */,
 				1898BA001DAB3D7000C6F33B /* Assets.xcassets */,
 				1898BA021DAB3D7000C6F33B /* LaunchScreen.storyboard */,
 				1898BA051DAB3D7000C6F33B /* Info.plist */,
@@ -123,6 +136,163 @@
 				1898BA1B1DAB3D7000C6F33B /* Info.plist */,
 			);
 			path = DuoYuTVUITests;
+			sourceTree = "<group>";
+		};
+		1898BA271DAB3E9500C6F33B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA2D1DAB3FA300C6F33B /* Main(主要) */,
+				1898BA2C1DAB3F5800C6F33B /* Tools(工具) */,
+				1898BA2B1DAB3F3D00C6F33B /* Me(我的) */,
+				1898BA2A1DAB3F2700C6F33B /* Follow(关注) */,
+				1898BA291DAB3EC900C6F33B /* Live(直播) */,
+				1898BA281DAB3EB200C6F33B /* Homr(首页) */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1898BA281DAB3EB200C6F33B /* Homr(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA3B1DAB407500C6F33B /* View */,
+				1898BA301DAB400800C6F33B /* Controller */,
+			);
+			name = "Homr(首页)";
+			sourceTree = "<group>";
+		};
+		1898BA291DAB3EC900C6F33B /* Live(直播) */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA3A1DAB407000C6F33B /* View */,
+				1898BA311DAB403200C6F33B /* Controller */,
+			);
+			name = "Live(直播)";
+			sourceTree = "<group>";
+		};
+		1898BA2A1DAB3F2700C6F33B /* Follow(关注) */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA391DAB406B00C6F33B /* View */,
+				1898BA321DAB403800C6F33B /* Controller */,
+			);
+			name = "Follow(关注)";
+			sourceTree = "<group>";
+		};
+		1898BA2B1DAB3F3D00C6F33B /* Me(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA381DAB406600C6F33B /* View */,
+				1898BA331DAB403E00C6F33B /* Controller */,
+			);
+			name = "Me(我的)";
+			sourceTree = "<group>";
+		};
+		1898BA2C1DAB3F5800C6F33B /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA371DAB405F00C6F33B /* View */,
+				1898BA341DAB404700C6F33B /* Controller */,
+			);
+			name = "Tools(工具)";
+			sourceTree = "<group>";
+		};
+		1898BA2D1DAB3FA300C6F33B /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA361DAB405300C6F33B /* View */,
+				1898BA351DAB404D00C6F33B /* Controller */,
+			);
+			name = "Main(主要)";
+			sourceTree = "<group>";
+		};
+		1898BA301DAB400800C6F33B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA431DAB410300C6F33B /* HomeViewController.swift */,
+				1898BA451DAB42E000C6F33B /* Home.storyboard */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1898BA311DAB403200C6F33B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA411DAB40F700C6F33B /* LiveViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1898BA321DAB403800C6F33B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA3F1DAB40E900C6F33B /* FollowViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1898BA331DAB403E00C6F33B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA3C1DAB40CE00C6F33B /* MeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1898BA341DAB404700C6F33B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1898BA351DAB404D00C6F33B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1898BA2E1DAB3FF000C6F33B /* MainTabBarController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1898BA361DAB405300C6F33B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1898BA371DAB405F00C6F33B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1898BA381DAB406600C6F33B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1898BA391DAB406B00C6F33B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1898BA3A1DAB407000C6F33B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1898BA3B1DAB407500C6F33B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +408,8 @@
 				1898BA041DAB3D7000C6F33B /* LaunchScreen.storyboard in Resources */,
 				1898BA011DAB3D7000C6F33B /* Assets.xcassets in Resources */,
 				1898B9FF1DAB3D7000C6F33B /* Main.storyboard in Resources */,
+				1898BA4A1DAB44B300C6F33B /* Live.storyboard in Resources */,
+				1898BA471DAB42E000C6F33B /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +434,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1898B9FC1DAB3D7000C6F33B /* ViewController.swift in Sources */,
 				1898B9FA1DAB3D7000C6F33B /* AppDelegate.swift in Sources */,
+				1898BA401DAB40E900C6F33B /* FollowViewController.swift in Sources */,
+				1898BA3D1DAB40CE00C6F33B /* MeViewController.swift in Sources */,
+				1898BA421DAB40F700C6F33B /* LiveViewController.swift in Sources */,
+				1898BA441DAB410300C6F33B /* HomeViewController.swift in Sources */,
+				1898BA2F1DAB3FF000C6F33B /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +489,22 @@
 				1898BA031DAB3D7000C6F33B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1898BA451DAB42E000C6F33B /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1898BA461DAB42E000C6F33B /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		1898BA481DAB44B300C6F33B /* Live.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1898BA491DAB44B300C6F33B /* Base */,
+			);
+			name = Live.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -415,6 +607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = UF5A4LY46G;
 				INFOPLIST_FILE = DuoYuTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -428,6 +621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = UF5A4LY46G;
 				INFOPLIST_FILE = DuoYuTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
