@@ -13,23 +13,42 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setnavigetionLeftBar()
+        setnaVigetionRightBar()
     }
 
+    func setnavigetionLeftBar(){
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem (image: #imageLiteral(resourceName: "Image_launch_logo"), style: .plain, target: self, action: nil)
+    }
+    
+    func setnaVigetionRightBar(){
+        
+        let historyItme  = UIBarButtonItem (image: #imageLiteral(resourceName: "image_my_history"), style: .done, target: self, action:#selector(self.historyClick))
+        
+        let scanItme  = UIBarButtonItem (image: #imageLiteral(resourceName: "Image_scan"), style: .done, target: self, action:#selector(self.scanClick))
+        
+        let searchItme  = UIBarButtonItem (image: #imageLiteral(resourceName: "btn_search"), style: .done, target: self, action:#selector(self.searchClick))
+        
+        navigationItem.rightBarButtonItems = [historyItme,scanItme,searchItme]
+    }
+  
+    @objc private  func historyClick()  {
+        print("historyClick")
+    }
+    @objc private  func scanClick()  {
+        print("scanClick")
+    }
+    
+    @objc private  func searchClick()  {
+        print("searchClick")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
