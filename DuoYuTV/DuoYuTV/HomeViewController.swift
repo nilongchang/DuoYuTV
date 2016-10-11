@@ -13,8 +13,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         setnavigetionLeftBar()
         setnaVigetionRightBar()
+        
+        setTitleView()
     }
 
     func setnavigetionLeftBar(){
@@ -33,6 +37,16 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItems = [historyItme,scanItme,searchItme]
     }
   
+    func setTitleView(){
+        
+        
+        let  titles = ["推荐","游戏","娱乐","趣玩"]
+        
+        let titleView =  PageTitkeView(titles: titles, frame: CGRect(x: 0, y: 64, width: kScreenW, height: 40))
+        
+        self.view.addSubview(titleView)
+    }
+    
     @objc private  func historyClick()  {
         print("historyClick")
     }

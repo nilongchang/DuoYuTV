@@ -8,9 +8,13 @@
 
 import UIKit
 
+fileprivate let kDufauilColor:UIColor = UIColor.gray
+fileprivate let kSelectColor:UIColor = UIColor.orange
+fileprivate let kScrollLineH:CGFloat  = 2
 class PageTitkeView: UIView {
     
     var titles :[String]
+    
     
     //懒加载
     fileprivate lazy var currentIndex :Int = 0
@@ -28,6 +32,16 @@ class PageTitkeView: UIView {
         
     }()
     
+    fileprivate lazy var scrollLine:UIView = {
+       
+        let scrollLine = UIView()
+        
+        scrollLine.backgroundColor = kSelectColor
+        
+        
+        return scrollLine
+    }()
+    
     init(titles:[String],frame:CGRect){
         
         self.titles = titles
@@ -42,17 +56,28 @@ class PageTitkeView: UIView {
     
     func setupUI(){
         
+        
+        print("setupUI")
         //1.添加scrollView
         addSubview(scrollView)
         scrollView.frame = bounds
         
+       
         //2.添加Label
         setLabels()
+        
+        //3.添加底部线
+        
+        setViewbottomLine()
+        
+        //4.默认选择第0个
+        
+        
     }
     func setLabels(){
         
         let labelW:CGFloat = kScreenW/(CGFloat)(titles.count)
-        let labelH:CGFloat = bounds.height - 2
+        let labelH:CGFloat = bounds.height - kScrollLineH
         let labelY:CGFloat = 0
         
         
@@ -67,9 +92,10 @@ class PageTitkeView: UIView {
             
             titleLabel.tag = index
             titleLabel.text = title
-            titleLabel.textColor = UIColor.lightGray
+            titleLabel.textColor = kDufauilColor
+           
             titleLabel.textAlignment = .center
-            titleLabel.font = UIFont.systemFont(ofSize: 16.0)
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
             titleLabel.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
             
             scrollView.addSubview(titleLabel)
@@ -83,6 +109,24 @@ class PageTitkeView: UIView {
         }
     }
     
+    func setViewbottomLine(){
+        
+        let viewLine = UIView()
+        viewLine.backgroundColor = UIColor.lightGray
+        viewLine.frame = CGRect(x: 0, y: frame.height - 1, width: frame.width, height: 1)
+        
+        addSubview(viewLine)
+        
+        let cureenLabel = labels[currentIndex]
+        cureenLabel.textColor = kSelectColor
+        
+        
+        scrollLine.frame = CGRect(x: cureenLabel.frame.origin.x, y: scrollView.frame.height - kScrollLineH, width: cureenLabel.frame.width, height: kScrollLineH)
+        
+        scrollView.addSubview(scrollLine)
+        
+    }
+    
 }
 extension PageTitkeView{
     
@@ -94,11 +138,17 @@ extension PageTitkeView{
         
         let oldLabel = labels[currentIndex]
         
-        
-        
+        oldLabel.textColor = kDufauilColor
+        currentLabel.textColor = kSelectColor
         
         currentIndex = currentLabel.tag
         
+        
+        
+        UIView.animate(withDuration: 0.15) {
+            
+           self.scrollLine.frame.origin.x = currentLabel.frame.origin.x
+        }
         
     }
     
