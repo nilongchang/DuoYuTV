@@ -8,19 +8,49 @@
 
 import UIKit
 
+private let kTitleViewH:CGFloat = 40
+
 class HomeViewController: UIViewController {
+    
+    
+    fileprivate lazy var pageTitleView:PageTitkeView = {[weak self] in
+        
+        let  titles = ["推荐","游戏","娱乐","趣玩"]
+        
+        let titleView =  PageTitkeView(titles: titles, frame: CGRect(x: 0, y: 64, width: kScreenW, height: kTitleViewH))
+        
+        titleView.delegate = self as! PageTitleViewDelegate?
+        
+        return titleView
+    }()
+    
+    fileprivate lazy var pageContenView:PageContenView = {[weak self] in
+        
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.automaticallyAdjustsScrollViewInsets = false
         
-        setnavigetionLeftBar()
-        setnaVigetionRightBar()
+        setupUI()
         
-        setTitleView()
     }
 
+    func setupUI(){
+       
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        setnavigetionBar()
+        
+        view.addSubview(pageTitleView)
+    }
+    
+    func setnavigetionBar(){
+        
+        setnavigetionLeftBar()
+        
+        setnaVigetionRightBar()
+        
+    }
     func setnavigetionLeftBar(){
         
         navigationItem.leftBarButtonItem = UIBarButtonItem (image: #imageLiteral(resourceName: "Image_launch_logo"), style: .plain, target: self, action: nil)
@@ -31,21 +61,12 @@ class HomeViewController: UIViewController {
         let historyItme  = UIBarButtonItem (image: #imageLiteral(resourceName: "image_my_history"), style: .done, target: self, action:#selector(self.historyClick))
         
         let scanItme  = UIBarButtonItem (image: #imageLiteral(resourceName: "Image_scan"), style: .done, target: self, action:#selector(self.scanClick))
-        
         let searchItme  = UIBarButtonItem (image: #imageLiteral(resourceName: "btn_search"), style: .done, target: self, action:#selector(self.searchClick))
         
         navigationItem.rightBarButtonItems = [historyItme,scanItme,searchItme]
     }
   
-    func setTitleView(){
-        
-        
-        let  titles = ["推荐","游戏","娱乐","趣玩"]
-        
-        let titleView =  PageTitkeView(titles: titles, frame: CGRect(x: 0, y: 64, width: kScreenW, height: 40))
-        
-        self.view.addSubview(titleView)
-    }
+    
     
     @objc private  func historyClick()  {
         print("historyClick")

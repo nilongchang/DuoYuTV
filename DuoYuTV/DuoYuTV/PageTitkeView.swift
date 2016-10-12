@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol PageTitleViewDelegate:class  {
+    
+    func pageTitleView(_ titleView:PageTitkeView,selectIndex:Int)
+}
+
+
 fileprivate let kDufauilColor:UIColor = UIColor.gray
 fileprivate let kSelectColor:UIColor = UIColor.orange
 fileprivate let kScrollLineH:CGFloat  = 2
@@ -19,6 +25,8 @@ class PageTitkeView: UIView {
     //懒加载
     fileprivate lazy var currentIndex :Int = 0
     fileprivate lazy var labels :[UILabel] = [UILabel]()
+    
+    weak var delegate:PageTitleViewDelegate?
     
     fileprivate lazy var scrollView:UIScrollView = {
         
@@ -41,6 +49,8 @@ class PageTitkeView: UIView {
         
         return scrollLine
     }()
+    
+    
     
     init(titles:[String],frame:CGRect){
         
@@ -70,18 +80,17 @@ class PageTitkeView: UIView {
         
         setViewbottomLine()
         
-        //4.默认选择第0个
+        //4.添加colltionView
         
         
     }
+    
+    
     func setLabels(){
         
         let labelW:CGFloat = kScreenW/(CGFloat)(titles.count)
         let labelH:CGFloat = bounds.height - kScrollLineH
         let labelY:CGFloat = 0
-        
-        
-        
         
         
         for(index,title) in titles.enumerated(){
@@ -150,6 +159,7 @@ extension PageTitkeView{
            self.scrollLine.frame.origin.x = currentLabel.frame.origin.x
         }
         
+        delegate?.pageTitleView(self, selectIndex: currentIndex)
     }
     
     
