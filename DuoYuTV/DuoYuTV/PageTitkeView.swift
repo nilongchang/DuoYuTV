@@ -164,7 +164,23 @@ extension PageTitkeView{
     
     
 }
-
+extension PageTitkeView{
+    
+    func setTitleWithProgress(_ progress: CGFloat, sourceIndex: Int, targetIndex: Int,colorProportion:CGFloat) {
+        
+        let scrollLineX =  progress * kScreenW/(CGFloat)(titles.count)
+        
+        self.scrollLine.frame.origin.x +=  scrollLineX
+        
+        let oldLabel = labels[sourceIndex]
+        let currentLabel = labels[targetIndex]
+        
+        oldLabel.textColor = kDufauilColor
+        currentLabel.textColor = kSelectColor
+        
+        print("colorProportion = \(colorProportion)")
+    }
+}
 
 
 

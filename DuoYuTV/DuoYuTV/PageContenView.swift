@@ -10,6 +10,11 @@ import UIKit
 
 private let ContentCellID = "ContentCellID"
 
+protocol PageContenViewDelegate:class {
+    
+    func pageContenView(_ contenView:PageContenView,sourceIndex:Int,targetIndex:Int,progress:CGFloat,colorProportion:CGFloat)
+}
+
 class PageContenView: UIView {
 
     // MARK:-定义属性
@@ -17,6 +22,10 @@ class PageContenView: UIView {
     fileprivate weak var parentViewController:UIViewController?
     fileprivate var startOffsetX:CGFloat = 0
     fileprivate var isForbidScrollDelegate:Bool = false
+    fileprivate var colorProportion:CGFloat = 0
+    
+    weak var delegate:PageContenViewDelegate?
+    
     
     fileprivate lazy var collectionView :UICollectionView = {[weak self] in
        
@@ -29,10 +38,10 @@ class PageContenView: UIView {
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isPrefetchingEnabled = true
+        collectionView.isPagingEnabled = true
         collectionView.bounces = false
         collectionView.dataSource = self as UICollectionViewDataSource?
-        collectionView.delegate = self as! UICollectionViewDelegate?
+        collectionView.delegate = self as UICollectionViewDelegate?
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ContentCellID)
         
         return collectionView
@@ -66,7 +75,9 @@ class PageContenView: UIView {
         
     }
 }
-extension PageContenView:UICollectionViewDataSource{
+
+//MARK:- UICollectionmView 数据源方法 和  代理方法
+extension PageContenView:UICollectionViewDataSource,UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -92,9 +103,71 @@ extension PageContenView:UICollectionViewDataSource{
         
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+      
+        // 关闭禁止代理方法
+        isForbidScrollDelegate = false
+        
+        print("scrollViewWillBeginDragging")
+        startOffsetX = scrollView.contentOffset.x
+        colorProportion = 0
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        
+        // 0.判断是否是点击事件
+        if isForbidScrollDelegate { return }
+        // 1.定义需要的获取的数据
+        var progress :CGFloat = 0
+        var sourceIndex :Int = 0
+        var targetIndex :Int = 0
+        let currentOffsetX = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        
+//        if currentOffsetX > startOffsetX {//左滑
+        
+            progress = (currentOffsetX - startOffsetX)/scrollViewW
+            
+            sourceIndex = Int(startOffsetX / scrollViewW)
+            
+            targetIndex = Int(currentOffsetX / scrollViewW)
+        print("scrollViewDidScroll")
+//        print("scrollViewDidScroll startOffsetX:\(startOffsetX) currentOffsetX:\(currentOffsetX) progress:\(progress)")
+        colorProportion += progress
+        if colorProportion >= 1 {
+            colorProportion = 1
+        }else if colorProportion <= 0{
+            colorProportion = 0
+        }
+        
+        startOffsetX = currentOffsetX
+        delegate?.pageContenView(self, sourceIndex: sourceIndex, targetIndex: targetIndex, progress: progress,colorProportion:colorProportion)
+        
+        
+//        }
+        
+        
+        
+        
+    }
+    
 }
 
-
+extension PageContenView{
+    
+    func setCurrentIndex(_ currentIndex:Int){
+        
+        
+        // 0.记录需要禁止的代理方法
+        isForbidScrollDelegate = true
+        
+        let offsetX = CGFloat( currentIndex) * collectionView.bounds.width
+        
+        collectionView.setContentOffset(CGPoint(x:offsetX,y:0), animated: false)
+        
+    }
+}
 
 
 

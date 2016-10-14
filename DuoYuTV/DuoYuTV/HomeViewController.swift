@@ -19,12 +19,32 @@ class HomeViewController: UIViewController {
         
         let titleView =  PageTitkeView(titles: titles, frame: CGRect(x: 0, y: 64, width: kScreenW, height: kTitleViewH))
         
-        titleView.delegate = self as! PageTitleViewDelegate?
+        titleView.delegate = self as PageTitleViewDelegate?
         
         return titleView
     }()
     
     fileprivate lazy var pageContenView:PageContenView = {[weak self] in
+        
+        var childs = [UIViewController]()
+        
+        let pageContenViewFrame = CGRect(x: 0, y: 64 + kTitleViewH, width: kScreenW, height: kScreenH -  64 - kTitleViewH - kTabBarH)
+        
+        for tag in 0..<4{
+            
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            
+            vc.view.tag = tag
+            
+            childs.append(vc)
+        }
+        
+        let contenView = PageContenView(frame: pageContenViewFrame , childVcs: childs, parentViewController: self)
+        
+        contenView.delegate = self as PageContenViewDelegate?
+        
+        return contenView
         
     }()
 
@@ -32,7 +52,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
+       
     }
 
     func setupUI(){
@@ -42,6 +62,8 @@ class HomeViewController: UIViewController {
         setnavigetionBar()
         
         view.addSubview(pageTitleView)
+        
+        view.addSubview(pageContenView)
     }
     
     func setnavigetionBar(){
@@ -87,3 +109,27 @@ class HomeViewController: UIViewController {
     
 
 }
+
+//MARK:- PageTitleViewDelegate代理方法
+extension HomeViewController:PageTitleViewDelegate{
+    
+    func pageTitleView(_ titleView: PageTitkeView, selectIndex: Int) {
+        
+        pageContenView.setCurrentIndex(selectIndex)
+    }
+    
+}
+
+//MARK:- PageContenView ---代理
+extension HomeViewController:PageContenViewDelegate{
+    
+    func pageContenView(_ contenView: PageContenView, sourceIndex: Int, targetIndex: Int, progress: CGFloat,colorProportion:CGFloat) {
+        
+        pageTitleView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex,colorProportion:colorProportion)
+    }
+    
+    
+}
+
+
+
